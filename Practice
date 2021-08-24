@@ -1,0 +1,205 @@
+ * A review of basic java methods and operations.
+ * This code is available for public use. Please give credit where it is due.
+ *
+ * @Yahvin gali
+ * @2/09/2021
+ */
+
+import java.util.List;
+import java.util.*;
+public class ApiPractice {
+ /**
+  * Finds the hypotenuse of a right triangle given sides a and b.
+  * @param a Length of side a.
+  * @param b Length of side b.
+  * @return Length of hypotenuse.
+  */
+ public static double hypotenuse(double a, double b) {
+     double sumSquares = Math.pow(a,2) + Math.pow(b,2);
+     double hypotenuse = Math.sqrt(sumSquares);
+     return hypotenuse;
+ }
+ 
+ /**
+  * Returns the greater of two values. If the values are exactly the same,
+  * it returns one of them.
+  * @param a First value.
+  * @param b Second value.
+  * @return Largest value.
+  */
+ public static double max(double a, double b) {
+     double response = 0.0;
+     if (a > b){
+         response = a;
+     }
+     else if (b > a){
+         response = b;
+     }
+     else if (a == b){
+         response = a; 
+     }
+     return response;
+ }
+ 
+ /**
+  * Returns the smaller of two values. If the values are exactly the same,
+  * it returns one of them.
+  * @param a First value.
+  * @param b Second value.
+  * @return Smallest value.
+  */
+ public static double min(double a, double b) {
+     double response = 0.0;
+     if (a < b){
+         response = a;
+     }
+     else if (b < a){
+         response = b;
+     }
+     else if (a == b){
+         response = a;
+     }
+     return response;
+ }
+
+ /**
+  * Returns the lexicographically greater of two strings. If the values are
+  * exactly the same, it returns one of them.
+  * @param a First string.
+  * @param b Second string.
+  * @return Lexicographically greatest string.
+  */
+ public static String max(String a, String b) {
+     String result = "";
+     if (a.compareTo(b) > 0){
+         result = a;
+     }
+     if (b.compareTo(a) > 0){
+         result = b;
+     }
+     else if (a.compareTo(b) == 0){
+         result = a;
+     }
+     return result;
+ }
+ 
+ /**
+  * Returns the lexicographically lesser of two strings. If the values are
+  * exactly the same, it returns one of them.
+  * @param a First string.
+  * @param b Second string.
+  * @return Lexicographically lesser string.
+  */
+ public static String min(String a, String b) {
+     String result = "";
+     if (a.compareTo(b) < 0){
+         result = a;
+     }
+     if (b.compareTo(a) < 0){
+         result = b;
+     }
+     else if (a.compareTo(b) == 0){
+         result = a;
+     }
+     return result;
+ }
+ 
+ /**
+  * Compares two strings to see if they contain the same text.
+  * @param a First string.
+  * @param b Second string.
+  * @return <code>true</code> if the strings contain the same text,
+  * <code>false</code> otherwise.
+  */
+ public static boolean isSameText(String a, String b) {
+     if (a.equals(b)){
+         return true;
+     }
+     else{
+         return false;
+     }
+ }
+ 
+ /**
+  * Returns the longest string (the string with the greatest number of
+  * characters) out of three strings. If two or more strings have the same
+  * number of characters, it returns the first one.
+  * @param a First string.
+  * @param b Second string.
+  * @param c Third string.
+  * @return String with the most characters.
+  */
+ public static String getLongestString(String a, String b, String c) {
+     String result = "";
+     int aLength = a.length();
+     int bLength = b.length();
+     int cLength = c.length();
+     if (aLength > bLength && aLength > cLength){
+         result = a;
+     }
+     else if (bLength > aLength && bLength > cLength){
+         result = b;
+     }
+     else if (cLength > aLength && bLength > bLength){
+         result = c;
+     }
+     else if (aLength == bLength || aLength == cLength){
+         result = a;
+     }
+     else if (bLength == cLength){
+         result = b;
+     }
+     return result;
+ }
+ 
+ /**
+  * Returns the shortest string (the string with the lowest number of 
+  * characters) from a list of strings. If two or more strings have the
+  * same number of characters, it returns the first one.
+  * 
+  * If the incoming list is <code>null</code> or contains zero strings, 
+  * this method returns <code>null</code>.
+  * 
+  * @param list List of incoming strings.
+  * @return String with the fewest characters.
+  */
+ public static String getShortestString(List<String> list) {
+     String result = "";
+     int min = Integer.MAX_VALUE;
+     if (list.size() == 0){
+         result = null;
+     }
+     for (String var: list)
+     {
+         int length = var.length();
+         if (length < min){
+             min = length;
+             result = var;
+         }
+     }
+     return result;
+ }
+ 
+ /**
+  * Returns a substring of the incoming string that contains all of the 
+  * characters leading up to, but not including, the comma found
+  * in the string.
+  * @param s A string with a comma somewhere inside of it.
+  * @return The substring leading up to the comma.
+  */
+ public static String getStringBeforeComma(String s) {
+  int commaIndex = s.indexOf(",");
+  return s.substring(0,commaIndex);
+ }
+ 
+ /**
+  * Returns a substring of the incoming string that contains all of the 
+  * characters after the comma found inside the string.
+  * @param s A string with a comma somewhere inside of it.
+  * @return The substring after the comma.
+  */
+ public static String getStringAfterComma(String s) {
+  int commaIndex = s.indexOf(",");
+  return s.substring(commaIndex+1);
+ }
+}
